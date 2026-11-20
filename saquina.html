@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Saquina ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:#fff5f7;color:#333;text-align:center;overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:-1;background:linear-gradient(180deg,#ffe3ec,#fff5f7,#fff);overflow:hidden}
+.bg:before{content:"";position:absolute;width:500px;height:500px;background:#ffc2d1;border-radius:50%;filter:blur(80px);top:-100px;left:-100px;opacity:.6;animation:flutuar 6s ease-in-out infinite}
+.bg:after{content:"";position:absolute;width:400px;height:400px;background:#ffb3c6;border-radius:50%;filter:blur(80px);bottom:-80px;right:-80px;opacity:.5;animation:flutuar 7s ease-in-out infinite reverse}
+@keyframes flutuar{0%,100%{transform:translateY(0)}50%{transform:translateY(30px)}}
+.hearts{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.hearts i{position:absolute;top:-30px;animation:cair linear infinite;opacity:.8}
+@keyframes cair{to{transform:translateY(110vh) rotate(360deg)}}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:30px 20px;position:relative;z-index:2}
+.hero small{letter-spacing:5px;font-size:11px;color:#c44569;font-weight:600}
+.big-heart{font-size:90px;margin:15px 0;animation:bater 1s infinite;filter:drop-shadow(0 10px 20px rgba(255,77,109,.4))}
+@keyframes bater{0%,100%{transform:scale(1)}25%{transform:scale(1.15)}40%{transform:scale(0.95)}60%{transform:scale(1.2)}}
+.hero h1{font-family:'Playfair Display',serif;font-size:72px;line-height:.85}
+.hero h1 em{font-weight:400;color:#ff4d6d}
+.hero p{max-width:340px;margin-top:18px;line-height:1.7;color:#666;font-size:14px}
+.btn{background:#111;color:#fff;border:0;padding:16px 34px;border-radius:50px;font-size:14px;letter-spacing:1px;margin-top:25px;cursor:pointer;box-shadow:0 10px 25px rgba(0,0,0,.18)}
+.btn-pink{background:#ff4d6d;box-shadow:0 10px 25px rgba(255,77,109,.4)}
+.piscar{animation:piscar 1.5s infinite}
+@keyframes piscar{50%{opacity:.3}}
+section{max-width:520px;margin:0 auto;padding:55px 20px;position:relative;z-index:2}
+section h2{font-family:'Playfair Display',serif;font-size:36px;line-height:1.1}
+section .sub{font-size:11px;letter-spacing:4px;color:#ff4d6d;font-weight:600;margin:10px 0 28px}
+.carta{background:rgba(255,255,255,.95);border-radius:28px;padding:32px 24px;text-align:left;line-height:1.95;font-size:15.5px;box-shadow:0 20px 50px rgba(255,77,109,.15);border:1px solid #ffe0e8}
+.carta b{color:#ff4d6d}
+.envelope{width:260px;height:170px;background:#ff8fa3;border-radius:16px;margin:0 auto;position:relative;cursor:pointer;box-shadow:0 15px 30px rgba(255,77,109,.3)}
+.envelope .tampa{position:absolute;top:0;left:0;width:100%;height:50%;background:#ff4d6d;clip-path:polygon(0 0,100% 0,50% 100%);border-radius:16px 16px 0 0;transition:.6s;transform-origin:top;z-index:2}
+.envelope.aberto .tampa{transform:rotateX(180deg)}
+.envelope .selo{position:absolute;top:48%;left:50%;transform:translate(-50%,-50%);font-size:42px;z-index:3}
+.envelope.aberto .selo{opacity:0}
+.msg-secreta{display:none;background:#fff;border-radius:20px;padding:25px;margin-top:20px;box-shadow:0 15px 35px rgba(0,0,0,.08)}
+.msg-secreta.mostrar{display:block}
+.motivo{background:#fff;border-radius:22px;padding:22px;margin:14px 0;text-align:left;display:flex;gap:14px;align-items:flex-start;box-shadow:0 10px 25px rgba(0,0,0,.06);border:1px solid #fff0f3}
+.motivo span{font-size:28px}
+.motivo b{font-size:15px}
+.motivo p{font-size:13.5px;color:#777;line-height:1.6;margin-top:3px}
+.barra{height:18px;background:#ffe0e8;border-radius:50px;overflow:hidden;margin:15px 0}
+.barra div{height:100%;width:0;background:linear-gradient(90deg,#ff4d6d,#ff8fa3,#ffb3c6);border-radius:50px;transition:2s}
+.final{background:#111;color:#fff;border-radius:32px;padding:45px 25px;margin:20px;position:relative;overflow:hidden}
+.final h2{color:#fff;font-size:34px}
+.final p{color:#ddd;line-height:1.8;font-size:14px;margin-top:12px}
+.final .botoes{display:flex;gap:12px;justify-content:center;margin-top:22px}
+.final button{padding:14px 26px;border-radius:50px;border:0;font-weight:600;cursor:pointer;font-size:14px}
+#sim{background:#ff4d6d;color:#fff}
+#nao{background:#333;color:#fff;position:relative}
+.assinatura{margin-top:25px;font-family:'Playfair Display',serif;font-style:italic;font-size:24px;color:#ff8fa3}
+#explosao{position:fixed;inset:0;pointer-events:none;z-index:99;display:none}
+#explosao span{position:absolute;font-size:30px;animation:voar 1.2s ease-out forwards}
+@keyframes voar{to{transform:translate(var(--x),var(--y)) rotate(360deg) scale(1.5);opacity:0}}
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="hearts" id="hearts"></div>
+<div id="explosao"></div>
+
+<div class="hero">
+  <small>✨ UM ESPAÇO SÓ PARA TI ✨</small>
+  <div class="big-heart">❤️</div>
+  <h1>Para<br><em>Saquina</em></h1>
+  <p>Saquina, fiz este cantinho só para ti.<br>Para te dizer aquilo que o meu coração sente todos os dias por ti.</p>
+  <button class="btn" onclick="document.getElementById('carta-sec').scrollIntoView({behavior:'smooth'})">↓ DESCE, MEU AMOR ↓</button>
+  <p style="font-size:12px;margin-top:18px">De: <b style="color:#ff4d6d">Nelo</b> ❤️ • Para a mulher mais linda do mundo</p>
+  <p class="piscar" style="font-size:11px;color:#ff4d6d;margin-top:10px">▼ continua a descer, tem surpresa ▼</p>
+</div>
+
+<!-- CARTA JÁ CORRIGIDA - APARECE LOGO, SEM BOTÃO -->
+<section id="carta-sec">
+  <h2>Minha Saquina</h2>
+  <div class="sub">UMA CARTA DE NELO PARA TI • LÊ COM CALMA</div>
+  <div class="carta">
+    <p>Saquina,</p>
+    <p>Se estás a ler isto, é porque eu precisava que soubesses uma coisa: <b>eu amo-te MUITO.</b> Não é um amor de momento, não é um amor de palavras. É um amor que eu sinto quando acordo, quando estou a trabalhar, quando estou calado... tu estás sempre no meu pensamento.</p>
+    <p>Tu és bonita, sim. Mas o que mais me prende em ti é a tua maneira de ser. O teu sorriso muda o meu dia. A tua voz acalma-me. A tua presença faz tudo ficar mais leve.</p>
+    <p>Eu olho para ti e penso: <i>como é que uma pessoa pode ser tão especial assim?</i> E depois lembro-me que Deus foi generoso comigo quando te colocou na minha vida.</p>
+    <p>Saquina, eu quero que saibas: <b>eu escolho-te.</b> Todos os dias. Mesmo nos dias difíceis, mesmo quando estás chateada. O meu coração continua a ser teu.</p>
+    <p>Obrigado por existires. Obrigado por seres tu.</p>
+    <p style="text-align:right;margin-top:15px"><b>Com todo o meu amor,<br>Nelo ❤️</b></p>
+  </div>
+</section>
+
+<section>
+  <h2>Tenho um segredo...</h2>
+  <div class="sub">CLICA NO ENVELOPE PARA ABRIR</div>
+  <div class="envelope" id="envelope" onclick="abrirEnvelope()">
+    <div class="tampa"></div>
+    <div class="selo">💌</div>
+    <p style="position:absolute;bottom:12px;width:100%;font-size:11px;letter-spacing:2px;color:#fff;font-weight:600">PARA SAQUINA</p>
+  </div>
+  <div class="msg-secreta" id="secreta">
+    <h3 style="font-family:'Playfair Display',serif;font-size:24px">Saquina... 🤫</h3>
+    <p style="line-height:1.8;margin-top:10px;font-size:14px">Eu não consigo explicar com palavras normais o que sinto por ti. É como se o meu coração batesse mais forte só de pensar no teu nome. <b style="color:#ff4d6d">Tu és a minha paz, o meu sorriso, o meu pensamento favorito.</b><br><br>Se o mundo acabasse hoje, eu só queria estar a olhar para ti.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Porque eu te amo</h2>
+  <div class="sub">SÃO INFINITOS, MAS VOU TE DIZER ALGUNS</div>
+  <div class="motivo"><span>❤️</span><div><b>1. O teu sorriso</b><p>É o meu vício. Quando sorris, tudo em mim sorri também. O teu sorriso cura o meu dia.</p></div></div>
+  <div class="motivo"><span>✨</span><div><b>2. A tua beleza</b><p>Tu és linda de um jeito que não se explica. Cada vez que te vejo, fico mais apaixonado.</p></div></div>
+  <div class="motivo"><span>🌸</span><div><b>3. O teu jeito</b><p>Tu tens um jeito único, doce, que me faz querer estar sempre perto de ti.</p></div></div>
+  <div class="motivo"><span>💭</span><div><b>4. Tu estás em tudo</b><p>Eu penso em ti quando acordo e quando vou dormir. Tu és o meu primeiro e último pensamento.</p></div></div>
+  <div class="motivo"><span>🔥</span><div><b>5. Tu me fazes melhor</b><p>Por ti, eu quero ser melhor homem, melhor pessoa. Tu inspiras-me a ser mais.</p></div></div>
+  <div style="background:#fff;border-radius:22px;padding:22px;margin-top:20px;box-shadow:0 10px 25px rgba(0,0,0,.06)">
+    <b>Quanto eu te amo?</b>
+    <div class="barra"><div id="barraAmor"></div></div>
+    <p style="font-size:13px;color:#777">A carregar o meu amor por ti...</p>
+    <p id="percent" style="font-weight:700;color:#ff4d6d;font-size:20px">0%</p>
+    <button class="btn btn-pink" onclick="medirAmor()">MEDIR O MEU AMOR ❤️</button>
+  </div>
+</section>
+
+<section>
+  <h2>Se eu pudesse...</h2>
+  <div class="sub">O QUE EU FARIA POR TI, SAQUINA</div>
+  <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:21px;line-height:1.6">"Se eu pudesse, guardava o teu sorriso num pote para olhar para ele todos os dias."</p><br>
+  <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:21px;line-height:1.6">"Se eu pudesse, parava o tempo só para ficar mais um pouco a olhar para ti."</p><br>
+  <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:21px;line-height:1.6">"Se eu pudesse, tirava toda a tristeza do teu coração e colocava só amor."</p>
+</section>
+
+<div class="final">
+  <div class="big-heart" style="font-size:55px">❤️</div>
+  <h2>Saquina, ouve bem:</h2>
+  <p>Eu não sei o que o futuro nos reserva, mas de uma coisa eu tenho certeza:<br><br><b style="color:#fff;font-size:19px">Eu amo-te. E vou continuar a amar-te.</b><br><br>Hoje, amanhã e sempre que me deixares.</p>
+  <p style="margin-top:25px;font-weight:600;color:#fff">Saquina, aceitas continuar a ser a dona do meu coração? 🥺❤️</p>
+  <div class="botoes">
+    <button id="sim" onclick="aceitou()">SIM, ACEITO ❤️</button>
+    <button id="nao" onmouseover="fugir()" onclick="fugir()">NÃO 😢</button>
+  </div>
+  <p id="resposta" style="display:none;margin-top:20px;font-size:16px;color:#ff8fa3;font-weight:600">EU SABIA! ❤️❤️❤️<br>Saquina, tu acabaste de fazer o Nelo o homem mais feliz do mundo!</p>
+  <div class="assinatura">— Teu Nelo, para sempre teu</div>
+  <button class="btn btn-pink" onclick="explodirCoracoes()">Clica aqui, Saquina ❤️</button>
+</div>
+
+<script>
+  const heartsEl = document.getElementById('hearts');
+  const emojis = ['❤️','💖','💕','🌸','✨','💘'];
+  for(let i=0;i<28;i++){
+    let s=document.createElement('i');
+    s.innerText=emojis[Math.floor(Math.random()*emojis.length)];
+    s.style.left=Math.random()*100+'vw';
+    s.style.fontSize=(14+Math.random()*20)+'px';
+    s.style.animationDuration=(3+Math.random()*5)+'s';
+    s.style.animationDelay=(Math.random()*5)+'s';
+    heartsEl.appendChild(s);
+  }
+  function abrirEnvelope(){
+    document.getElementById('envelope').classList.add('aberto');
+    setTimeout(()=>{ document.getElementById('secreta').classList.add('mostrar'); },500);
+  }
+  function medirAmor(){
+    let barra=document.getElementById('barraAmor');
+    let pct=document.getElementById('percent');
+    let v=0;
+    let t=setInterval(()=>{
+      v+=2; if(v>100) v=100;
+      barra.style.width=v+'%'; pct.innerText=v+'%';
+      if(v>=100){ clearInterval(t); pct.innerText='INFINITO ∞ ❤️'; }
+    },40);
+  }
+  function fugir(){
+    let b=document.getElementById('nao');
+    b.style.position='fixed';
+    b.style.left=Math.random()*70+'vw';
+    b.style.top=Math.random()*70+'vh';
+  }
+  function aceitou(){
+    document.getElementById('resposta').style.display='block';
+    explodirCoracoes();
+  }
+  function explodirCoracoes(){
+    let ex=document.getElementById('explosao');
+    ex.style.display='block'; ex.innerHTML='';
+    for(let i=0;i<35;i++){
+      let s=document.createElement('span');
+      s.innerText=emojis[Math.floor(Math.random()*emojis.length)];
+      s.style.left='50%'; s.style.top='50%';
+      s.style.setProperty('--x',(Math.random()*600-300)+'px');
+      s.style.setProperty('--y',(Math.random()*600-300)+'px');
+      ex.appendChild(s);
+    }
+    setTimeout(()=>{ ex.style.display='none'; },1300);
+  }
+</script>
+</body>
+</html>
